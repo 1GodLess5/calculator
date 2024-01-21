@@ -1,3 +1,5 @@
+package cz.godless;
+
 public class Operands {
     private final double leftNumber;
     private final double rightNumber;

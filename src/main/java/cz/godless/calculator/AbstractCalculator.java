@@ -32,6 +32,6 @@ public abstract class AbstractCalculator {
     }
 
     private void printResult(double result){
-        System.out.println(this.name + "calculated result " + result);
+        System.out.println(this.name + " calculated result " + result);
     }
 }

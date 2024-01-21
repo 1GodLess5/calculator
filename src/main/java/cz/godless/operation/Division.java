@@ -1,4 +1,4 @@
-package operation;
+package cz.godless.operation;
 
 public class Division implements Operation {
     @Override
