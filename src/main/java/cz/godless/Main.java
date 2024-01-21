@@ -13,29 +13,23 @@ public class Main {
     public static void main(String[] args){
         do {
             System.out.println("Write number, then type of operation (+, -, *, /) and then write number again.");
-            double leftNumber;
-            double rightNumber;
-            char operator;
+            final double leftNumber, rightNumber;
+            final ArithmeticOperator operator;
 
-            while (true){
-                try {
-                    System.out.print("First number: ");
-                    leftNumber = scanner.nextDouble();
-                    System.out.print("Operation: ");
-                    operator = scanner.next().charAt(0);
-                    if (operator != '+' && operator != '-' && operator != '*' && operator != '/'){
-                        System.out.println("Invalid input.");
-                        continue;
-                    }
-                    System.out.print("Second number: ");
-                    rightNumber = scanner.nextDouble();
-
-                    break;
-                } catch (InputMismatchException e){
-                    System.out.println("Invalid input.");
-                    scanner.nextLine();
-                }
+            try {
+                System.out.print("First number: ");
+                leftNumber = scanner.nextDouble();
+                System.out.print("Operation: ");
+                final String line = scanner.next();
+                operator = ArithmeticOperator.getFromSymbol(line);
+                System.out.print("Second number: ");
+                rightNumber = scanner.nextDouble();
+            } catch (InputMismatchException | IllegalArgumentException e){
+                System.out.println("Invalid input.");
+                scanner.nextLine();
+                continue;
             }
+
 
             final Operands operands = new Operands(leftNumber, rightNumber);
             final AbstractCalculator calculator = calculatorHolder.getSuitableCalculator(operator);
