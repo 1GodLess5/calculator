@@ -31,9 +31,9 @@ public class Main {
                 }
             }
 
+            final Operands operands = new Operands(leftNumber, rightNumber);
 
-
-            System.out.println("Left: " + leftNumber + ", operation: " + operation + ", right: " + rightNumber);
+            System.out.println("Left: " + operands.getLeftNumber() + ", operation: " + operands.getRightNumber() + ", right: " + rightNumber);
         } while (true);
     }
 }
